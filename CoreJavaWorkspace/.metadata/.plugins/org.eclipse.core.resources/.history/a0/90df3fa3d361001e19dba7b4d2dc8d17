@@ -1,0 +1,8 @@
+package com.vodafone.ui;
+
+public class ComplexNumber {
+	double realPart;
+	double imaginaryPart;
+	
+	
+}

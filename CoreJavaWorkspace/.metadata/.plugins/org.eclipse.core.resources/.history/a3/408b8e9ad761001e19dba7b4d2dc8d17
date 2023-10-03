@@ -1,0 +1,10 @@
+package com.vodafone.model;
+
+public class ComplexNumber {
+	
+	/* data members (or) properties */
+	double realPart;
+	double imaginaryPart;
+	
+	
+}

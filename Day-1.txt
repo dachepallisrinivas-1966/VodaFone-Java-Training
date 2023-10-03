@@ -1,0 +1,557 @@
+D.Srinivas
+I am a Corporate Trainer
+Having 32+ years of expercience
+10 years of corporate training experience
+My major clients - CapGemini, Cognizant, HP, Infosys, Samsung, MPhasis, CMS etc.,
+Java Training (Full Stack Trainings)
+I am from visakhapatnam, Andhra Pradesh.
+_________________________________________________________________________________________________________________________________________
+
+
+							Day-1
+						------------------------
+
+
+
+ Java Introduction
+ JDK, JRE, JVM, JIT, Byte Code
+ Why Java Platform Independent (WORA)
+ OOP with Java
+ Class, Objects and Methods
+ Constructor
+ Method Overloading
+ Constructor Overloading
+ Static  & Final Keywords
+
+
+
+ Garbage Collector
+ Finalize Method
+
+ Inheritance
+ Method Overriding
+ Use of super keyword
+ Compare Overloading and Overriding
+ Wrapper Class
+
+ Arrays in Java
+
+ Program Example using Eclipse
+
+
+
+Lab Setup:
+---------------
+1. Java 8 is required
+2. Eclipse IDE Enterprise Edition 
+
+								Core Java
+							----------------------------
+What is Java?
+	It is strictly, but partially an object oriented programming language.
+
+
+primitive datatypes:
+	int, float, char, double, byte, short, long		-	 not objects
+
+
+who developed Java?
+	James Gosling from Sun microsystems in 1992.
+	Oracle corporation purchased Sun microsystems.
+	(www.oracle.com)
+
+Java editions:
+	1) Java SE	(Standard Edition)			-	Console/Desktop/StandAlone Apps
+	2) Java EE	(Enterprise Edition)			-	Web Applications / Distributed Applications
+	3) Java ME	(Micro Edition)				-	Mobile Apps	-	Not offered by oracle corp. any more.
+
+
+JDK (Java Development Kit)	- 	used by developers
+	
+
+	LTS (Long Term Support)
+		Java 8
+		Java 11
+		Java 17
+		Java 21
+
+JRE (Java Runtime Environment)
+	It is installed automatically along with JDK.
+
+
+JVM (Java Virtual Machine)
+	It is a memory in JRE, created everytime we run a java program.
+	once the program is terminated, JVM also destroyed.
+
+
+What is JDK vs JRE vs JVM?
+
+	JDK = JRE + development tools like javac, java etc.,
+	JRE = JVM + libraries
+
+
+WORA ?
+	Write Once Run Anywhere
+	This is possible because Java is a platform independent language.	
+	
+
+JIT (Just Intime) compiler:
+	it is used to compile repetetive code in their nature.
+	It is also part of JRE.
+
+
+
+Structure of a Java Program:
+------------------------------
+	[Documentation Section]
+	[Package Statement]
+	[Import Statements]
+	[Interface Statements]
+	
+	class ClassName {
+		public static void main(String[] args) {
+			// your code goes here ....
+		}
+	}
+	
+
+write a java program to print "Hello World".
+
+steps:
+-------
+1. goto cmd prompt.
+2.  
+	> notepad Hello.java
+
+3. type the following program
+
+	class Hello {
+		public static void main(String[] args) {
+			System.out.println("Welcome to the Training Program for Vodafone");
+		}
+	}
+
+4. save the program.
+
+5. compile the program.
+
+	> javac Hello.java
+
+6. verify what are files created.	(not mandatory step)
+
+	> dir Hello.*
+
+03-10-2023  11:48               448 Hello.class
+03-10-2023  11:48               134 Hello.java
+
+7. execute the program
+
+	> java Hello
+	
+8. observe the output.
+	
+	Welcome to the Training Program for Vodafone
+
+	
+
+
+
+Java Tokens:
+------------------
+	Token means an atomic item in a program.
+
+	a) Identifiers	:	name given to variables, class, data members, methods, interface etc.,
+	b) keywords	:	around 50 keywords	(eg: if, for, switch, while, int, float etc.,)
+	c) operators	:	
+		1) arithmetic
+		2) relational 
+		3) logical
+		4) conditional
+		5) increment/decrement
+		6) arithmetic assignment (shorthand)
+		
+	d) comments	:	ignored by the compiler.
+				a) //		end-of-line comment	 	(single line comment)	
+				b) /* and */	block comment			(multi-line comment)				
+				c) /**	and	*/				documentation comment
+
+	e) literals		: any hard-coded values		(eg: 2, -3, 5.6)
+
+
+Naming Conventions:
+--------------------
+
+	1) Idenitifiers given to variables, objects, methods:	(camel notation)
+		a) it should start and continue in lowercase.
+		b) if it has more than one word, it follow initcap (first letter is in capital and rest in small).
+	
+		eg:	length
+			lengthOfBox
+			boxLength
+			lengthInMeters
+
+			showData()
+			toString()
+			mapReducer()
+
+	2) Identifiers given to user-defined datatypes like 		(pascal notation)
+		class, interface, enum etc.,
+
+		a) follow initcaps all through.
+
+			String
+			InputStream
+			ArrayIndexOutOfBoundsException
+			IOException
+
+			
+	3) Identifiers given to constants
+
+		a) constant is a name given to literal.
+
+		b) all are in upper case.
+		    if more than one word, use underscores between them.
+
+		    eg: PI, MIN_VALUE, MAX_VALUE
+
+	4) Identifiers given to packages.
+
+		a) all are in lowercase
+		b) they are often abbreviated
+
+
+		eg:	io,  util, awt, lang
+
+Operators:
+	
+	arithmetic operators		+, -, *, /, %
+	relational operators		>,<,>=,<=,==,!=
+	logical operators		&&	||	!
+	increment/decrement	++	--
+	assignment operators	=	+=	-=	*=	/=	%=
+	conditional operator		(condition)?st-1:st-2
+	miscellaneous operators	.	(member access operators)
+				()
+				[ ]	{ }	<>	
+				"instance of"
+
+
+Literals that are supported by Java:
+------------------------------------------------------
+	Integer 	decimal		7	
+			binary		0b100
+			octal		07	
+			hexadecimal	0x7
+	
+	Floating-Point	3.14	-2.6	3.0
+
+	Boolean		true, false
+
+	Void		null
+
+	Character	'A', '@', '7'
+
+	string		"impulse", "49-53-20/25", "9247175823", "A"
+
+
+
+Language Fundamentals:
+------------------------------------
+datatypes:
+-------------
+1) primitive datatypes 	(pre-defined / intrinsic / fundamental)
+	numeric
+		byte		1		-128 to 127
+		short		2		-32768 to 32767
+		int		4		-2^31 to 2^31-1
+		long		8		-2^63 to 2^63-1
+
+		float		4		single precision		(scientific / mathematical applications)
+		double		8		double precision		(commercial applications)
+
+	non-numeric
+		char		2
+		void		--
+		boolean		indefinite or system independent
+				
+
+
+2) user-defined datatypes
+	class		interface	
+	abstract class	
+
+
+
+								Eclipse IDE
+							-----------------------------
+1. create a new folder in any of your driver (not in C drive) "vodafone".
+2. click on Eclipse IDE icon 
+	workspace : d:\vodafone\CoreJavaWorkspace
+	click "Next"
+3. click "Create a Project" link on the left side menu of IDE.
+   choose "java project" option
+
+	Project : ToStartWith
+	Choose your java environment : Java-11
+	uncheck "Module-Info"
+	click "Next"
+
+	you can observe "src", "bin" folder related information.
+
+	click "Finish"
+4) click "ToStartWith" in "package explorer" window
+	we will see "src" folder.
+	right click "src" folder -> New -> class
+		class name : Hello
+		check "public static void main(String[] args)
+	click "Finish"
+5) type the program.
+
+	public class Hello {
+		public static void main(String[] args) {
+			System.out.println("welcome to vodafone training");		// only line you have to type
+
+		}
+	}
+6) right click inside the program -> Run as -> Java Application
+
+	on the console window, we can see the output.
+		welcome to vodafone training
+
+	
+
+______________________________________________________________________________________________________
+Note:
+	"bin" folder is the location where eclipse store all ".class" files.
+_______________________________________________________________________________________________________
+
+_________________________________________________________________________________________________________
+Note:
+	if no package is created, all our java programs are stored under an virtual pacage whose name is
+	"default package".
+__________________________________________________________________________________________________________
+
+
+What is a package?
+	a package is collection of related java classes, interfaces, sub packages.
+	the package structure will resolve the name conflicts.
+	it is represented as a folder in o/s.
+
+How do you name packages?
+	
+	com.vodafone.ui	:	to store all you main programs.
+	
+	
+src -> new -> package
+	package name : com.vodafone.ui
+	click "Finish"
+
+
+----------------------------------------------------------------------------------------
+
+How do you accept data into variables during program execution?
+
+	Scanner:
+	--------
+		It is a pre-defined in java, using which we can accept data.
+		It is available in java.util package.
+
+		in order to use this class, we must import it.
+
+		import java.util.Scanner;
+
+
+		methods:
+		--------
+			i) 	nextInt()	
+			ii)	nextDouble()
+			iii)	next()
+			iv) 	nextLine()
+
+		1. we must create object for the Scanner class.
+
+			Scanner scan = new Scanner(System.in);
+
+			System.in refer to standard input device i.e., keyboard
+
+		2. use relevant methods to accept data.
+
+			int number = scan.nextInt();
+			double weight = scan.nextDouble();
+			String name = scan.nextLine();
+
+	_________________________________________________________________________________________________
+	Note:
+		Scanner is also known as resource.
+		whenever memory is allocated for a resource, we must de-allocate it by closing resource.
+
+		scan.close();
+	_________________________________________________________________________________________________
+
+
+write a java program to find the simple interest when principle, time and rate are given by the user.
+
+	
+
+									OOPS
+					   		(Object Oriented Programming System)
+					---------------------------------------------------------------------
+
+It is a programming paradigm.
+	a) monolithic
+	b) procedure oriented
+	c) structured
+	d) object oriented
+
+advantages of OOP:
+	1) code reusability
+	2) security
+
+class:
+	it is a user-defined datatype which represent an entity in terms of properties and behaviours.
+	it is a reusable software component.
+	properties are also known as data members.
+	behaviours are represented as methods (functions).
+	no memory is allocated when we define the class.
+
+	classes are also called as POJO (Plain Old Java Object), Model, Bean etc.,
+	As of now, we use classes to represent data and hence they are often treated as Models.
+
+	syntax:
+		class ClassName {
+
+			// properties go here
+		}
+	
+
+object:
+	it is a variable whose datatype is a class.
+	memory is allocated only when we create an object.
+
+
+	syntax:
+		ClassName  objectName;
+
+		objectName = new ClassName();
+
+	______________________________________________________________________________________________________________
+
+	Note:
+		the "new" keyword allocate memory for the object.
+		whenever a "new" keyword is used, it represent dynamic memory.
+	______________________________________________________________________________________________________________
+
+
+	
+features of OOP:
+-----------------
+	data hiding:
+		prevent the direct access of data members from outside the class.
+		we can achieve data hiding by making all data members are private.
+
+	encapsulation:
+		using this feature, we can access the private data members of a class
+		by means of public setter and getter methods.
+
+
+
+				
+	inheritance
+	abstraction
+	polymorphism
+
+
+access specifiers (access modifiers) (security constraints):
+-------------------------------------------------------------
+	i) 	default : here "default" is not a keyword.
+	     (friendly)	  if no access is specified, it takes default access.
+			  members under this access, can be used in the current class as well as any other class
+			  inside the same package.
+
+	i) 	private	: members under this access, can be used only in the class in which they are declared.
+	ii) 	public	: members under this access, can be used in any class in that project.	
+	iii) protected	: members under this access, can be used either in the current class or from any of 
+			  the sub class.
+
+
+method overloading:
+--------------------
+	it refers to multiple methods (functions) having the same name but with different parameter list.
+	it is known as "method overloading".
+
+	class Geometry {
+
+		/* method overloading */
+		public int area(int length, int breadth) {
+			return length * breadth;
+		}
+		/* method overloading */
+		public int area(int radius) {
+			return 3.14 * radius * radius;
+		}
+
+	}
+
+
+constructors:
+--------------
+	it is a special method that is executed automatically whenever an object is created.
+	it should have same name as that of class.
+	it can have parameters.
+	it cannot return any value and should not have return type such "void".
+	a class can have many constructors.this feature is known as "Constructor overloading".	
+
+	it is used to initialize data members of a class.
+
+"this" reference:
+-----------------
+	represent current object.
+
+static members:
+------------------
+	"static" means "sharable".
+
+	1) static data members:
+		these are special data members which have only one memory location, data in which is shared 
+		across all objects of the class.
+
+
+	2) static methods:
+		these are special methods and they can be called directly with the class name.
+		we need not have any object to utitlize these methods.
+	
+		static methods are used mainly to manage static data members.
+	
+		syntax:
+		-------
+				ClassName.statMethodName(arg-1, arg-2, ....);	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

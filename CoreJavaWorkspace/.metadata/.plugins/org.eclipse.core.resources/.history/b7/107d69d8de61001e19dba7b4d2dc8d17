@@ -1,0 +1,30 @@
+package com.vodafone.ui;
+
+import com.vodafone.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber first;					// reference
+		first = new ComplexNumber();			// object
+		
+		first.setRealPart(5);					// . is member access operator
+		first.setImaginaryPart(6);
+		
+		System.out.println(first.getRealPart() + ", " + first.getImaginaryPart());	
+		
+		ComplexNumber second;
+		second = new ComplexNumber();
+		
+		System.out.println(first.getRealPart() + ", " + first.getImaginaryPart());
+		
+		
+		
+	}
+
+}
+
+
+		
+		
+		

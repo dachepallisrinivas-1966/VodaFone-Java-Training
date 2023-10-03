@@ -1,0 +1,26 @@
+package com.vodafone.model;
+
+public class ComplexNumber {
+	
+	/* data members (or) properties */
+	private double realPart;
+	private double imaginaryPart;
+	
+	/* methods */
+	public void setRealPart(double real) {
+		realPart = real;
+	}
+	
+	public void setImaginaryPart(double imag) {
+		imaginaryPart = imag;
+	}
+	
+	public double getRealPart() {
+		return realPart;
+	}
+	
+	public double getImaginaryPart() {
+		return imaginaryPart;
+	}
+	
+}

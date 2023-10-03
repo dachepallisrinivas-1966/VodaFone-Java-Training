@@ -1,0 +1,25 @@
+package com.vodafone.ui;
+
+import com.vodafone.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber first;					// reference
+		first = new ComplexNumber();			// object
+		
+		first.realPart = 5;						// . is member access operator
+		first.imaginaryPart = 6;
+		
+		System.out.println(first.realPart + ", " + first.imaginaryPart);
+		
+		
+
+	}
+
+}
+
+
+		
+		
+		
