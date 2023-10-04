@@ -712,9 +712,8 @@ finalize() method:
 
     • Abstract Class 
     • Interface (Normal, Functional, Marker) 
-    • Lambda Expressions 
-    • Interface default and static Methods 
-
+    • Lambda Expressions 		
+    • Interface default and static Methods 	(JDK 8+)
     • Package 
     • Access Specifier 
 
@@ -722,6 +721,7 @@ finalize() method:
     • Exceptions Vs Errors 
     • Checked Exceptions vs Unchecked Exceptions 
     • Create and Use Custom Exception 
+
     • Introduction to Generic 
     • Collections Framework Introduction 
     • List Interfaces and ArrayList, LinkedList, Vector 
@@ -799,7 +799,7 @@ then create object for the sub class.
 
 
 	______________________________________________________________________________________
-	What is difference between abstract classand interface?
+	What is difference between abstract class and interface?
 
 		1. abstract class can have properties, fully defined methods, constructors,
 		   abstract methods.
@@ -808,6 +808,132 @@ then create object for the sub class.
 
 		2. using interfaces, we can achieve multiple inheritance. 
 	______________________________________________________________________________________
+
+
+Functional Interface:
+	it is an interface that contain only one abstract method.
+	it can be marked with @FunctionalInterface annotation.
+
+	it is mainly for lambda expressions.
+
+
+Default method & Static method:
+	from jdk 8 onwards, we can write method definitions inside an interface.
+	but the method must be default or static.
+
+	these are mainly given for backward compatibility.
+
+Lambda:
+	it is a short way of working with functional interfaces.
+
+
+
+								Exception Handling
+							----------------------------------------
+
+	An exception is an unexpected event due to which the program is terminated.
+
+errors are classified into
+	syntax errors	(detected by the compiler)
+	logical errros	(detected by unit testing)  
+	resource errors	(system errors)
+	exceptions	(run time errors)
+
+whenever an exception occurred, the program is aborted. 
+to handle exceptions, java provide try and catch.
+
+try {
+	code that is expected to raise an exception
+} catch(ExceptionType-1  exceptionObject) {
+	exception handler task
+} catch(ExceptionType-2  exceptionObject) {
+	exception handler task
+} ....
+finally {
+	task that should be executed for sure
+}
+
+the program will never terminate without executing finally block.
+
+
+
+					Exception API	(java.lang)
+				-----------------------------------
+					
+					Throwable (i)
+				       	     ↓
+		-------------------------------------------------
+		↓						↓
+	     Error (c)					   Exception (c)
+								↓
+						---------------------------------
+						↓				↓                                                                                   
+					RunTimeException		<<checked Exceptions>>
+						↓
+					<<unchecked exceptions>>
+
+ArrayIndexOutOfBoundsException
+StringIndexOutOfBoundsException
+InputMismatchException
+NullPointerException
+etc.,
+
+java.lang.Exception class
+----------------------------------
+	Exception()
+	Exception(String msg)
+
+	String getMessage()
+	void printStackTrace()
+	
+
+All exception related classes are derived from Exception class or RunTimeException class.
+
+
+Checked and Unchecked Exceptions:
+------------------------------------------------
+checked exceptions are informed by the compiler. they cannot be avoided. we must handle these exceptions using try and catch.
+
+unchecked exceptions are not informed by the compiler. we should not use try and catch to handle these exceptions.
+They should be  avoided by means of "Defensive Programming". 
+
+Compiler identify checked exceptions. It will not allow you to continue if we don't handle it.
+In case of unchecked exceptions, the compiler will not force programmer to handle it.
+
+How does the compiler know whether it is checked or unchecked?
+--------------------------------------------------------------------------------------
+Any class derived from "RunTimeException" class are "unchecked exceptions", Otherwise they are  "checked exceptions".
+
+
+JDK 7 Enhancements:
+---------------------------------
+a) multi-catch exception
+
+try {
+	code
+} catch (Exception-1	   |   Exception-2  |  Exception-3    obj) {
+	statements
+}
+
+b) try-with-resources
+
+
+
+Custom Exception (user-defined exception):	
+------------------------------------------
+1) Create your own exception class which must be inherited from java.lang.Exception class.
+2) Write a constructor that takes a String parameter and pass this String to the super class constructor.
+
+
+how do we raise a user-defined exception?
+-------------------------------------------------------
+we use "throw" keyword to raise a user-defined exception.
+
+syntax:
+	throw new ExceptionClass(arg-1);
+
+
+
 
 
 
