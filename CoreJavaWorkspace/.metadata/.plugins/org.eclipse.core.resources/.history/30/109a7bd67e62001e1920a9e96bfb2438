@@ -1,0 +1,30 @@
+package com.vodafone.model;
+
+public class Shape {
+	private double firstDimension;
+	private double secondDimension;
+	
+	public Shape() {
+		/* default constructor */
+	}
+	
+	public Shape(double firstDimension) {
+		this.firstDimension = firstDimension;
+		this.secondDimension = 0;
+	}
+	
+	public Shape(double firstDimension, double secondDimension) {
+		this.firstDimension = firstDimension;
+		this.secondDimension = secondDimension;
+	}
+	
+	/* setters and getters */
+	
+	public abstract double area();
+
+}
+
+
+
+
+	

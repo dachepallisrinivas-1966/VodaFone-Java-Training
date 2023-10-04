@@ -22,20 +22,14 @@ ________________________________________________________________________________
  Method Overloading
  Constructor Overloading
  Static  & Final Keywords
-
-
-
- Garbage Collector
- Finalize Method
-
  Inheritance
  Method Overriding
  Use of super keyword
  Compare Overloading and Overriding
  Wrapper Class
-
  Arrays in Java
-
+ Garbage Collector
+ Finalize Method
  Program Example using Eclipse
 
 
@@ -528,6 +522,300 @@ static members:
 	
 
 
+======================
+Day-2	(4-Oct-2023)
+======================
+
+							Inheritance
+						------------------------------
+It is the process of creating a new class (sub class) from an existing class (super).
+sub class can access all the public features of super class as well as any extra features that are added to it.
+it is mainly for "code reusability".
+it also represent an "is-A" relationship.
+"extends" keyword must be used to create sub class.
+syntax:
+-------
+	class  SubClass  extends SuperClass {
+
+	}
+
+types of inheritance:
+-------------------------
+1) simple (single) inheritance		(A -> B)
+2) hierarchical 			(A -> B, A -> C)
+3) multi-level				(A -> B -> C)
+
+____________________________________________________________________
+Note:
+	multiple inheritance is not supported on classes in java.
+	to achieve this, we have to use interfaces.
+____________________________________________________________________
+
+
+"super" keyword:
+-------------------
+1. we can access super class public varibales
+2. we can call super class constructors in sub class constructor.
+	a) super()			: to call super class default constructor
+	b) super(arg-1, arg-2, ...)	: to call super class parameter constructors
+
+	_________________________________________________________________________________________
+	Note:
+		if we want to call the super class constructor in a sub class constructor,
+		it must be written as first statement in the constructor code block.
+	_________________________________________________________________________________________
+
+3. we can call super class methods in sub class method.
+	c) super.method(arg-1, arg-2, ...);
+
+
+
+method overriding:
+-------------------
+when a sub class contain a method that has same signature as that of another method in it's super class,
+then the sub class method is said to be "overriding".
+we can use "@Override" annotation for compile-time check. It is not mandatory, but recommended.
+
+simple (single) inheritance:
+-----------------------------
+
+
+							Person (name, age)
+								|
+								↓ extends
+							Employee (salary)
+
+hierarchical inheritance:
+--------------------------
+
+							Person (name, age)
+								|
+								↓ extends
+						-----------------------------------------	
+						↓					↓
+					Employee (salary)			Student (fee)
+
+
+multi-level inheritance:
+---------------------------
+
+							Person (name, age)
+								↓					
+							Employee (salary)			
+								↓
+							Manager (bonus)
+
+
+_____________________________________________________________________________________________________________
+Task:
+			class Manager extends Employee {
+
+					// code
+
+			}
+
+			modify the InheritanceApp.java
+			add the manager object and print it.
+_____________________________________________________________________________________________________________
+
+
+final keyword:
+--------------
+	it can be used in 3 ways.
+
+	a) final variable:
+		it is used to declare constants.
+		constant is a name given to literal.
+
+		eg:
+			final int PASS_MARKS = 35;
+
+		____________________________________________________________________________________
+		Note:
+			Generally constants are declared with public static final keywords.
+		eg:
+			public static final int PASS_MARKS = 35;
+		_____________________________________________________________________________________
+
+
+		
+	b) final method:
+		if a method is final, it cannot be overridden in sub classes.
+		
+	c) final class:
+		if a class is final, it cannot be inherited any more.
+
+
+Wrapper class:
+--------------
+	every primitive data type has a corresponding pre-defined class.
+
+	primitive 	wrapper class
+	-----------	-------------
+	int		Integer 
+	double		Double
+	long		Long
+	boolean		Boolean
+	short		Short
+	byte		Byte
+
+
+Arrays:
+--------
+	In java, an array is also an object.
+	While creating an array itself, we must mention the size.
+	Once it is declared, we can't change the size.
+	index based operations are possible.
+
+	Every array contain a property "length", that return no. of cells in the array.
+	
+	syntax:
+		int[] arr = new int[5];
+
+	_________________________________________________________________
+	Note:
+		to store large amount of data
+	_________________________________________________________________
+
+	
+Enhanced for:	(JDK 1.5)
+-------------
+	using this loop, we can iterate over arrays and collections.
+
+	syntax:
+	-------
+		for(datatype  var : array) {
+			// code
+		}
+	
+	__________________________________________________________________________________________________________
+	Note:
+		Enhanced for loop always process from the first element till the last element in forward-only
+		direction.
+	__________________________________________________________________________________________________________
+
+
+Garbage collector:
+-----------------
+	It is a program in JRE, will peridocially check memory, and remove any unused (unreferenced) objects 		
+	and reclaim the memory.
+
+finalize() method:
+-------------------
+	it is available in java.lang.Object class.
+	we can override this method in any of the program, and you can request the garbage collector to
+	cleanup the memory.
+
+				System.gc();
+
+
+
+    • Abstract Class 
+    • Interface (Normal, Functional, Marker) 
+    • Lambda Expressions 
+    • Interface default and static Methods 
+
+    • Package 
+    • Access Specifier 
+
+    • Exception Handling Introduction 
+    • Exceptions Vs Errors 
+    • Checked Exceptions vs Unchecked Exceptions 
+    • Create and Use Custom Exception 
+    • Introduction to Generic 
+    • Collections Framework Introduction 
+    • List Interfaces and ArrayList, LinkedList, Vector 
+    • Set Interface and HashSet, LinkedHashSet, TreeSet 
+    • Map Interface and Hashmap, TreeMap 
+    • Queue Interface 
+    • Comparators/Comparable interfaces 
+
+
+
+Abstract class:
+---------------
+	"absract" means "incomplete".
+
+	"abstraction" means show the behaviour but hide the implementation details.
+
+	if a class is defined with an "abstract" keyword is known as "abstract class".
+	for an abstract class we cannot create object for it.
+
+	____________________________________________________________________________
+	Note:
+		if we try to create object for an abstract class, compiler will show 
+		the following message ....
+
+			"Cannot instantiate" the type ClassName
+	____________________________________________________________________________
+
+
+abstract methods:
+------------------
+	it is a method declaration without any definition.
+	when a class contain atleast one abstract method, then the class should be defined as "abstract class".
+	
+	______________________________________________________________________________________
+	Note:
+		An abstract method can exist only in an abstract class.
+		But vice versa may not be true.
+	_______________________________________________________________________________________
+
+
+
+	__________________________________________________________________________________________________
+	Note:
+		in order to make use of any abstract class, we have to create a sub class and override
+		all abstract methods of the super class, then create object for the sub class and use it. 
+	___________________________________________________________________________________________________
+
+
+
+polymorphism:
+-------------
+	exhibiting different behaviours for a same method call.
+
+	_______________________________________________________________________________
+	Note:
+		create a super class reference variable.
+		store sub class objects in it.
+		call the polymorphic method using the super class reference variable.
+	_______________________________________________________________________________
+	
+
+								
+
+								Interface
+							-----------------------------
+An interface is also a user-defined datatype.
+it contain only public abstract methods and public static final variables.	(upto JDK 7).
+it cannot have properties.
+
+
+we can't create object for an interface.
+to make use of this, we have to create a sub class (implementation class) using "implements" keyword.
+override all abstract methods of the interface in it.
+then create object for the sub class.
+
+
+	______________________________________________________________________________________
+	What is difference between abstract classand interface?
+
+		1. abstract class can have properties, fully defined methods, constructors,
+		   abstract methods.
+		
+		   an interface can contain only abstract methods and final variables.
+
+		2. using interfaces, we can achieve multiple inheritance. 
+	______________________________________________________________________________________
+
+
+
+
+
+
+
+	
 
 
 
@@ -549,9 +837,12 @@ static members:
 
 
 
-
-
-
+nisha jagtap
+pravin shende
+ajay shedge
+ketan kulkarni
+satyam prasad
+tanvi borade
 
 
 		

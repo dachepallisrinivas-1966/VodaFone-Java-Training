@@ -1,0 +1,19 @@
+package com.vodafone.ui;
+
+import com.vodafone.model.Employee;
+import com.vodafone.model.Person;
+
+public class InheritanceApp {
+
+	public static void main(String[] args) {
+		Person person = new Person("srinivas", 57);
+		person.show();
+		System.out.println();
+		
+		Employee employee = new Employee("kumar", 25, 45000.0);
+		employee.show();
+		System.out.println();
+
+	}
+
+}

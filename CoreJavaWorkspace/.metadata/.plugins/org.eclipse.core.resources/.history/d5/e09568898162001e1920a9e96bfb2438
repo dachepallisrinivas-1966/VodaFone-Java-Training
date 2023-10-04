@@ -1,0 +1,19 @@
+package com.vodafone.model;
+
+public class Circle extends Shape {
+
+	public Circle() {
+		super();
+	}
+
+	public Circle(double firstDimension) {
+		super(firstDimension);
+		
+	}
+
+	@Override
+	public double getArea() {
+		return Math.PI*firstDimension*firstDimension;
+	}
+
+}

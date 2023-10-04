@@ -17,6 +17,7 @@ public class ProductApp {
 		Product third = new Product(3, "keyboard", 750.0);
 		third.show();
 		
+	
 		Product fourth = new Product(4, "web cam", 900.0);
 		fourth.show();
 		
