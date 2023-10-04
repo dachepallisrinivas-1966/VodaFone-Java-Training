@@ -716,12 +716,10 @@ finalize() method:
     • Interface default and static Methods 	(JDK 8+)
     • Package 
     • Access Specifier 
-
     • Exception Handling Introduction 
     • Exceptions Vs Errors 
     • Checked Exceptions vs Unchecked Exceptions 
     • Create and Use Custom Exception 
-
     • Introduction to Generic 
     • Collections Framework Introduction 
     • List Interfaces and ArrayList, LinkedList, Vector 
@@ -931,6 +929,209 @@ we use "throw" keyword to raise a user-defined exception.
 
 syntax:
 	throw new ExceptionClass(arg-1);
+
+
+
+
+						Collections Framework
+						  (Collections API)
+						     (java.util)
+					---------------------------------------
+API stands for "Application Program Interface".
+Any API is a collection of interfaces and abstract classes.
+we need to have an implementation for any API in order to work with.
+
+for collections api, java itself provide implementations also. 
+so, we need not depend on any third party libraries.
+that is why collections is known as framework.
+
+https://docs.oracle.com/javase/tutorial/collections/index.html
+
+
+1) interfaces
+2) implementations
+3) algorithms
+4) aggregate operations
+
+
+Collections are used to store and manage "group of objects".
+
+_____________________________________________________________
+Note:
+	we cannot use primitive datatypes with collections.
+_____________________________________________________________
+
+Collection interface methods:
+-----------------------------
+	boolean add(E)
+	boolean addAll(C)
+	void clear()
+	boolean contains(O)
+	boolean contains(C)
+	boolean isEmpty()
+	boolean remove(O)
+	boolean removeAll(C)
+	int size()
+	Object[] toArray()
+
+there are 2 types.
+-------------------
+1) raw collection			(heterogenous)				- not recommended
+2) generic collection			(homogeneous and typesafe)		- recommended		
+
+what is generic?
+	it allow type-safety.
+	it is represented within angle brackets  <Type>.
+	we use generics in conjunction with collections.
+
+List interface:
+---------------
+	1. it allow duplicate objects.
+	2. it support index-based operations.
+	3. it allow null also.
+
+
+	implementation classes:
+	-----------------------
+	ArrayList			
+	LinkedList
+	
+	ArrayList:
+	-----------
+		it is used when we want to perform traversal operations frequently.
+		it is not good to perform insert/delete/modify operations.
+
+		methods:
+		--------
+		get(index)
+		set(index, new_value)
+		add(index, element)
+		indexOf(element)
+		remove(index)
+
+
+		iterator()
+
+	LinkedList:
+	------------
+		it is good to perform insert/delete/modify operations.
+
+	
+
+	iterator() : return an Iterator object, using which we can iterate over a collection.
+		     this method available for List interface.
+	
+	Iterator is an interface (java.util).
+		a) hasNext()
+		b) next()
+
+
+
+Set interface:
+-----------------
+	it doesnot allow duplicates.
+	it will not support index based operations.
+	it allow null values.
+
+	__________________________________________________________________________
+	Note:
+		In a TreeSet, we cannot insert null values.
+		If you do so, it will throw NullPointerException.
+	__________________________________________________________________________
+
+
+	implementation classes:
+	-----------------------
+	HashSet		:	order of retreival is not guaranteed.
+	LinkedHashSet	:	insertion order	
+	TreeSet		:	sorted order
+
+
+___________________________________________________________________________
+Task:
+	Vector Program
+	Queue Program
+___________________________________________________________________________
+
+
+Map interface:
+---------------
+	it is used to store key-value pair kind of data.
+	key cannot be duplicated.
+	key cannot be null.
+	value be can be duplicated.
+	value can be null.
+
+
+	implementation classes:
+	-----------------------
+	HashMap		:	order of retrieval is not guaranteed.	
+	LinkedHashMap	:	insertion order
+	TreeMap		:	sorted order on key
+
+	methods:
+	--------
+		put(key,value)
+		value get(key)
+		boolean containsKey(key)
+		Set<K> keySet()
+		values()
+
+
+Collections class	(java.util):
+--------------------------------------
+	sort(list)
+	reverse(list)
+	binarySearch(key, list)
+
+
+Comparable interface:
+------------------------
+	int compareTo(Object o)
+
+		return 0 of two objects are equal.
+		return +ve integer if first object is big.
+		return -ve integer if first object is small.
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Contract between equals() and hashcode():
+	--------------------------------------------
+	if two objects are equal as a result of equals(), then they should have the same hash code.
+	but vice versa is not required.
+
+
 
 
 
