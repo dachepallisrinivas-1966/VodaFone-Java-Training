@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.vodafone.comparator.NameComparator;
+import com.vodafone.comparator.SalaryComparator;
 import com.vodafone.model.Employee;
-import com.vodafone.model.Gender;
-import com.vodafone.service.NameComparator;
-import com.vodafone.service.SalaryComparator;
 
 public class EmployeeListDemo {
 
@@ -34,17 +33,18 @@ public class EmployeeListDemo {
 			System.out.println(emp);
 		}
 		System.out.println("--------------------------------------------------------");
-//		
-//		Collections.sort(emps, new NameComparator());
-//		for(Employee emp : emps) {
-//			System.out.println(emp);
-//		}
-//		System.out.println("--------------------------------------------------------");
-//		Collections.sort(emps, new SalaryComparator());
-//		for(Employee emp : emps) {
-//			System.out.println(emp);
-//		}
-//		System.out.println("--------------------------------------------------------");
+		
+		Collections.sort(emps, new NameComparator());
+		for(Employee emp : emps) {
+			System.out.println(emp);
+		}
+		System.out.println("--------------------------------------------------------");
+		
+		Collections.sort(emps, new SalaryComparator());
+		for(Employee emp : emps) {
+			System.out.println(emp);
+		}
+		System.out.println("--------------------------------------------------------");
 	}
 
 }

@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="com.vodafone.model.SimpleInterest"/>
     <fullyQualifiedTypeName name="com.vodafone.ui.ComplexNumberApp"/>
     <fullyQualifiedTypeName name="com.vodafone.model.CompoundInterest"/>
+    <fullyQualifiedTypeName name="com.vodafone.comparator.NameComparator"/>
 </qualifiedTypeNameHistroy>

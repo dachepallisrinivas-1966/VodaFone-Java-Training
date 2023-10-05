@@ -1087,6 +1087,10 @@ Collections class	(java.util):
 
 Comparable interface:
 ------------------------
+
+	java.lang.Comparable
+
+
 	int compareTo(Object o)
 
 		return 0 of two objects are equal.
@@ -1095,9 +1099,341 @@ Comparable interface:
 
 
 
+==========================
+Day-3	(4-Oct-2023)
+==========================	
+
+
+	Iterator:
+		it is an interface using which we can iterate over a collection.
+
+		hasNext()	:	return true if any elements are available for iteration.
+					return false if all items are over during iteration.
+
+		next()		:	return the next element from the iterator
+
+		we have to obtain the iterator from the list.
+
+		ArrayList<Integer> list = new ArrayList<>();
+
+		...
+		Iterator<Integer>  it = list.iterator();		// to obtain the iterator
+
+		while ( it.hasNext() ) {
+			Integer data = it.next()
+			System.out.println(data);
+		}
+
+
+    Comparator interface (Functional Interface):
+
+		java.util.Comparator
+
+		It is also meant for sorting.
+
+		we can create a new class that is implementing Comparator interface.
+		it has one abstract method ...
+			int compare(Object first, Object second)
+
+
+	___________________________________________________________________________
+	Task:
+		what is the difference between Comparable and Compartor?
+	___________________________________________________________________________
+
+
+
+    • Introduction to Web Application
+    • URL, URI 
+    • http protocol 
+    • Request and Response Mechanism 
+    • Servlet Introduction 
+    • Building Jar and War Files 
+    • 3 Tier Architecture 
+
+    • Create Maven Project 
+    • Working with POM 
+    • Add dependent Library 
+
+
+Java EE (Enterprise Edition):
+--------------------------------
+	Enterprise is the one who provide services across the globe.
+	It is not specific one geographic location.
+	For these people, we must develop "Distributed Applications".
+
+	Some part is executed in server. Other part is executed in client.
+	Java EE provide us to develop client-server based distributed applications.
+	Most common type of distributed application is "Dynamic Web Applications".
+
+	Static Web Application:
+		designer provide static web pages, every user who is watching the web site  will get the same content.
+		eg: w3schools.com, wikipedia etc.,
+
+	Dynamic Web Application:
+		content gets created on the fly.		
+		we will have a server program. which generate HTML pages dynamically.
+		content is displayed based on the user who logged in.
+
+		eg: gmail, onlinesbi
+
+	What is URL?
+	------------
+		It stands for Uniform Resource Locator.
+		It will bring a web page to the client (end user)
+
+		eg: https://www.w3schools.com
+
+	What is URI?
+	------------
+		It stands for Uniform Resource Identifier.
+		URI is string of characters that generally indentifies any web resource by using
+		a name, a location or both.
+
+		
+	what is a protocol?
+	-------------------
+		protocol is a set of rules.	
+		a protocol helps to establish data exchange and communication between two systems.
+
+		TCP/IP : standard protocol to exchange data between two machines connected in a network.
+
+
+	what is internet?
+	-----------------
+		network of networks.
+		
+		http	(hyper text transfer protocol)
+		https	(hyper text transfer protocol secured)
+
+		these protocols run over TCP/IP.
+
+	how does a url looks like?
+	---------------------------
+		protocol : port // ServerDomainName
+		protocol : port // ServerIpAddress
+		protocol : port // Resource
+
+	
 	
 
+	Web Client	:	Browser	
+				eg: Chrome, Edge, FireFox, Brave, Safari, Opera	etc.,
 
+	Web Server	:	It is a software that can host (deploy) a website.
+				eg: Apache Tomcat, Resin etc.,
+
+	Application Server :	It can host web applications as well as other distributed resources.
+				eg: Wildfly	(JBoss)
+				    GlassFish	(Oracle Corp.)
+				    Web Sphere	(IBM)
+				    Web Logic
+
+	
+	port:		It is a memory location	where a server will wait for a request.
+			every server software run on a specific port.
+			Apache Tomcat by default run on port 8080.
+
+
+			But if the port is alreqady occupied by any other softwares, we need to change 
+			the port number.
+
+
+			But to check whether you tomcat is running or not, open the browser and type 
+			the following url ...
+
+
+				http://localhost:8080
+
+
+			if tomcat runs properly, we could see the home page of apache tomcat.
+
+			if not, we get 404 error.	(404 - resource not found)
+		
+			404 is one of the popular Http Status Code.
+
+
+	Server Side Programming:
+			
+			Java		Servlet/JSP/Spring Web etc.,
+			.Net		ASP.Net/ ASP.Net MVC etc.,
+			Python		DJango Framework etc.,
+
+
+	Request		:	client always give a request to the server.
+				(HttpRequest)
+				
+	Response	:	server always send response to the client
+				(HttpResponse)
+
+		Request - Response Cycle	(Request - Response Mechanism)
+
+
+	Web Server : Contain Web Container or Servlet Container
+
+			Java		Apache Tomcat
+			.Net		IIS (Inter Information Server - Microsoft)
+			Python		Apache Web Server
+
+
+
+	Http Request Methods:
+		
+			GET	:	when the client want to GET any information from the server.
+					(Default)
+
+
+					eg: if client click a link
+
+					eg: if he type a url
+
+
+			POST	:	when the client want to POST any data to the server.
+
+
+	Difference between GET and POST?
+
+
+		https://www.google.com/search?q=java+programming+tutorial
+
+		GET is not secured	(data is exposed in the url)
+		We can pass limited amount of data uasually 2 KB. (header)
+
+		POST is secured
+		we can pass large amount of data.  (body)
+
+
+	How to download Tomcat?
+
+		https://tomcat.apache.org/download-90.cgi
+
+		choose "64-bit windows zip" 
+
+
+
+		folders:
+			*** 1) bin		:	startup.bat		shutdown.bat
+			*** 2) conf		: 	contain configuration files.
+
+							server.xml
+
+			*** 3) lib
+			4) logs	
+			5) temp
+			*** 6) webapps
+			7) work
+
+
+		how do you check?
+
+			go to the tomcat software location in the windows explorer.
+			go to the "bin" folder.
+			at the command prompt, type "startup"
+
+
+			open the browser and type the url ...
+				localhost:8080
+
+			you should see "tomcat" home page.
+
+		how do you stop the server?
+
+			come back to command prompt window.
+			type "shutdown"
+
+
+	
+	http://localhost:8080/ServletDemo/
+		equivalent to
+	http://localhost:8080/ServletDemo/index.html
+
+
+	http://localhost:8080/ServletDemo/hello
+
+
+	HelloServlet.java
+	------------------
+
+
+package com.vodafone.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class HelloServlet
+ */
+@WebServlet(description = "just to say hello to everyone", urlPatterns = { "/hello" })
+public class HelloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter  out = response.getWriter();
+		out.println("<h3>Hello User, Welcome to the App</h3>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
+
+
+                                   			 3-Tier Architecture
+                                		-----------------------------------
+    
+Presentation tier: (Presentation Layer)
+    This is the first and topmost layer which is present in the application. 
+    This tier provides presentation services, that is presentation, of content to the end user through CUI / GUI. 
+    This tier can be accessed through any type of client device like desktop, laptop, tablet, mobile, thin client, and so on. 
+    
+Application tier (Business Logic Layer): 
+    This is the middle tier of this architecture. 
+    This is the tier in which the business logic of the application runs. 
+    Business logic is the set of rules that are required for running the application as per the guidelines laid down by the organization. 
+    
+Data tier: (Data Layer)
+    This is the lowest tier of this architecture and is mainly concerned with the storage and retrieval of application data. 
+    The application data is typically stored in a database server.
+
+Benifits:
+	Faster development: 
+		Because each tier can be developed simultaneously by different teams, an organization can bring the application to market 		faster, and programmers can use the latest and best languages and tools for each tier.
+
+	Improved scalability: 
+		Any tier can be scaled independently of the others as needed.
+
+	Improved reliability: 
+		An outage in one tier is less likely to impact the availability or performance of the other tiers.
+
+	Improved security: 
+		Because the presentation tier and data tier can't communicate directly, a well-designed application tier can function as a 		sort of internal firewall, preventing SQL injections and other malicious exploits.
+
+
+
+
+						3-Tier application in web development
+					-------------------------------------------------------
+				
+	In web development, the tiers have different names but perform similar functions:
+
+	The "web server" is the presentation tier and provides the user interface. This is usually a web page or web site, such as an 	ecommerce site where the user adds products to the shopping cart, adds payment details or creates an account. The content can be 	static or dynamic, and is usually developed using HTML, CSS and Javascript.
+
+	The "application server" corresponds to the middle tier, housing the business logic used to process user inputs. To continue the e	ecommerce example, this is the tier that queries the inventory database to return product availability, or adds details to a 	customer's profile. This layer often developed using Python, Ruby or PHP and runs a framework such as e Django, Rails, Symphony or 	ASP.NET, for example.
+	
+	The "database server" is the data or backend tier of a web application. It runs on database management software, such as MySQL, 	Oracle, DB2 or PostgreSQL, for example.
 
 
 
@@ -1132,44 +1468,38 @@ Comparable interface:
 	but vice versa is not required.
 
 
+1. abhishek kamble			(pending)
+2. ajay shedge
+3. ankush nagarnaik		(pending)
+4. devyani umale			(pending)
+5. dhruva kale
+6. harshada memane			(assignments done)
+7. ketan kulkarni			
+8. khaled Barbhuiya
+9. mayank khurade			(pending)
+10. mayuri shinde			
+11. naga lakshmi padma 		(pending)
+12. nisha jagtap			(pending and improper practice)
+13. nisha pharande
+14. Pranali Raipure
+15. pravin shende	
+16. preeti tiwari			(pending )	
+17. priti ekhande			(pending )
+18. samrudhi haral			(pending )
+19. satyam prasad deva sarmah	
+20. sevak singh bhatia			(pending)
+21. shubham raut	
+22. shorya goyal						
+23. shruthika raikwad			(pending)
+24. Soham Gugalgawe	
+25. Tanvi Borade				
+26. Vaibhav Mane			(pending)
+			
 
 
 
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-nisha jagtap
-pravin shende
-ajay shedge
-ketan kulkarni
-satyam prasad
-tanvi borade
+				
+		
 
 
 		
