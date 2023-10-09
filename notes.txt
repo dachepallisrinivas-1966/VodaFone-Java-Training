@@ -2305,14 +2305,372 @@ File class:
 
 
 
+								Recap
+							------------------------
+1. what is the keyword to create a sub class?
+
+	extends
+
+2. what is overloading?
+
+	multiple methods having the same name but with different parameter list.
+
+
+3. what are the access specifiers as per the highest to lowest security level?
+
+	private			
+	protected
+	default access
+	public 
+	
+4. what is protected?
+	current class or in any of it's sub class.
+
+5. what is default?
+	current class or in any of the class in the same package.
+
+6. what is a package?
+	collection of classes, interfaces and sub packages.
+
+7. can we have private methods also?
+
+	yes.
+
+8. can we overload constructors?
+
+	yes.
+
+
+9.    class  Test {
+	public static void main(String[] args) {
+		int x;		// x is not assigned any value.
+
+		System.out.println(x);
+	}
+      }
+
+      output:
+		compile-time error.
+		because x is unintialized.
+ 
+10. class  Person {
+	private String name;
+	private int salary;
+
+	....
+    }
+
+    class  PersonApp {
+	public static void main(String[] args) {
+		Person p = new Person();
+		System.out.println(p);
+	}
+   }
+
+   output:
+	com.vodafone.model.Person @ 123ABC56 	// fully-qualified-class-name @ hashcode
+	
+
+11. what is the universal super class?
+
+	any class is inherited from java.lang.Object class.
+
+12. what is the use of toString() method?
+
+	toString() is belong to java.lang.Object class.
+
+	it is used to write any logic which is automatically executed whenever an object is used in S.O.P.
+
+
+	class  Person {
+		private String name;
+		private int salary;
+
+		public Person(String name, int salary) {		// parameter constructor
+			this.name = name;
+			this.salary = salary;
+		}
+
+		@Override
+		public String toString() {
+			return "Name = " + name + "\t" + "Salary = " + salary;
+		}
+    }
+
+    class  PersonApp {
+	public static void main(String[] args) {
+		Person p = new Person();		// default constructor
+		System.out.println(p);		// toString() is executed
+
+		Person p2 = new Person("rama", 18000);	// if no parameter construcor is there, it will throw a compile-time error
+		System.out.println(p2);
+	}
+   }
+
+	output:
+	-------
+		Name = null	Salary = 0
+
+	Note:
+		default value of any property if it is - int, float etc.,   0
+		if it is String, null.
+
+
+13. class Person {
+		...
+    }
+
+    class  Student  extends Person()		->	invalid
+    class  Student  extends Person
+
+14. class  Student  extends Person, Education	->	invalid
+		multiple inheritance is not possible.
+
+15. interface Stack {
+	void push(int num);
+    }
+
+	class   NumberStack   implements Stack    {
+		@Override
+		void push(int num) {
+			...	
+		}
+	}
+
+
+16. what is the difference between int and Integer?
+
+	int		primitive type
+	Integer		wrapper class
+
+17. how do you call a super class constructor from sub class?
+
+	super()		->	super class default constructor
+	super(a,b)	->	super class parameter constructor
+
+18. what is the keyword that represent current object?
+	"this"
+
+19. when do you get exceptions?
+	  runtime
+
+20. what is the operator that helps you concatenate two strings?
+
+	+
+
+21. class  Test  implements  Interface1, Interface2 {
+
+    }
+
+	is it valid or not?
+		Multiple Inheritance
+
+22.  class   A
+     interface B
+
+	can you create a sub class which must be inherited from class A and interface B?
+
+		class  C  extends A  implements  B {
+			// multiple inheritance
+		}
+
+
+23. can we create a sub interface from an interface?
+
+	interface  A  extends  B {
+
+	}
+
+
+	class				extends			sub class
+	class				implements		interface
+	interface			extends			interface
+
+
+24. how do you get the number of characters in a string.
+
+	length()   method
+
+25. how do you a specific character at given index?
+
+	charAt(index)
+
+		String str = "java";
+
+		s.o.p(str.charAt(0));		->	j
+
+26. what is the difference between String and StringBuilder and StringBuffer?
+
+		String is immutable		(not modifiable)
+		StringBuilder and StringBuffer 	are mutable  (modifable)
+
+
+27. what is the difference between StringBuilder and StringBuffer?
+
+		StringBuilder  is   not thread-safe.		(not synchronized)
+		StringBuffer is thread-safe.			(synchronized)
+
+28. what are the keywords in exception handling?
+
+		try		catch		finally		throw		throws
+
+28. what is the difference between throw and throws?
+
+		throw	:	to raise an exception programmatically.
+			throw  new  exceptionClassName();
+
+		throws	:	to delegate the exception handling responsibility to the caller of the method.
+
+
+	class   A
+	{
+
+		void m1() throws  SomeException {
+			if (condition)
+				throw  new SomeException();
+
+		}
+	}
+	
+	class  Test {
+		psvm(..) {
+
+			A obj = new A();
+			obj.m1();		// error - since we haven;t handled SomeException
+		}
+	}
+
+29. what is a final method?
+
+	we can't override final method in sub classes.
+
+30. what is the antonym kind of keyword of 'final' ?
+
+	it is "abstract".
+
+31. what is the meaning of the following ...
+
+	int[][] a = new int[2][3];		// creating 2-d array with 2 rows and 3 columns
+
+32. how do you know how many cells are there in an array?
+	
+	"length" property
+
+		int[] arr = new int[10];
+		s.o.p(arr.length())		===> compile-time
+		s.o.p(arr.length)		===>	10
+
+33. what is the purpose of finally block?
+		finally block is executed whether exception occurred or not.
+
+34. can we overload static methods?
+		YES.
+
+35. what is overriding?
+	if a sub class contain a method that has the same name and same type and number of parameters
+	that has another method in it's super class, then the sub method is said to be overriding method.
+
+
+	class  A {
+		public void show(int a, float b, String c) {
+			// code
+		}
+	}
+
+	class  B  extends   A {
+		@Overiride
+		public void show(int a, float b, String c) {
+			// code
+		}
+	}
+
+		
+35. can we overrride static methods?
+	
+	NO
+
+36.
+
+	int x = 10;
+	S.O.P(++x);		=>	11	(pre increment)
+
+
+37.	int  x = 10;
+	s.o.p(x++);		=>	10	(post increment)
+			
+	
+38. what is the difference between abstract class and interface?
+
+	abstract class
+			fully defined methods
+			abstract methods
+			constructors
+			properties
+			constants		(final variables)
+
+			can't achieve multiple inheritance
+			
+	interface
+			only abstract methods
+			connstants		(final variables)
+
+			
+		achieve multiple inheritance
+
+39. functional interface:
+		interface that contain only one abstract method.
+
+40. comparator vs comparable?
+
+		both are interfaces.
+
+		Comparable interface can be used to define the sorting mechanism in the model class.
+		This is like "natural ordering".	
+
+			java.lang package
+
+			int compareTo(Object)
+
+		Comparator interface can be used to define the sorting mechanism in a separate class.
+		It is like additional ordering requirements.
+
+			java.util packge
+
+		int compare(Object o1, Object o2)
+
+
+41. how do you accept a string from Scanner class?
+
+		next()		:	accept only one word. 
+		nextLine()	:	accept a string that can contain multiple words also.
+
+
+42. how do you sort an array list?
+
+		Collections.sort(list);		default sorting method		(Comparable)
+		Collections.sort(list, new Comparator())
+
+43. what Collection and Collections?
+
+		Collection is an interface.		
+		Collections is a class that has several utility methods.
 
 
 
 
 
 
+default methods
+static methids
+streams
+lambda
+
+			
 
 
+		
+
+		
 
 
 
