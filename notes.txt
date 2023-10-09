@@ -2240,6 +2240,72 @@ Thread class method:
 
 
 
+							IOStreams
+							(java.io)
+						------------------------------
+Store data permanantly.	(persistence)
+
+
+java.lang	package		(default package)
+	System
+	String
+	Math
+	Object
+	
+java.util	package
+	Scanner
+	Collection API
+
+java.io		package
+
+stream : flow of data.
+
+
+File class:
+	it is used to convert a physical file into a java object.
+		
+1) character streams	(text streams)	:	to store/retrieve unstructured information.
+
+	Reader abstract class
+		FileReader class
+		BufferedReader class
+	Writer abstract class
+		FileWriter class
+			write(string)
+		PrintWriter class
+
+2) byte streams	(binary streams) :		to store objects, images, audio, video etc.,
+
+	InputStream abstract class
+		FileInputStream class
+		ObjectInputStream class
+	OutputStream abstract class
+		FileOutputStream class		
+		ObjectOutputStream class	
+
+	serialization:
+		it is the process of converting object data into binary form.
+		this process is known as serialization.
+
+	de-serialization
+		it is the process of converting binary data back to object form.
+		this process is known as deserialization.
+
+	_______________________________________________________________________________
+	Rule:
+		to perform the serialization our model class must be inherited from 
+		java.io.Serializable interface.
+
+
+		Serializable interface doesnot contain any abstract methods.
+		It is a null interface.
+		It is only act like marker interface for a class.
+	______________________________________________________________________________
+
+
+
+
+
 
 
 
