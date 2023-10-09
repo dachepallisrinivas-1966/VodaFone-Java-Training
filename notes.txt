@@ -4,6 +4,8 @@ Having 32+ years of expercience
 10 years of corporate training experience
 My major clients - CapGemini, Cognizant, HP, Infosys, Samsung, MPhasis, CMS etc.,
 Java Training (Full Stack Trainings)
+dachepallisrinivas@gmail.com
+630 573 0633
 I am from visakhapatnam, Andhra Pradesh.
 _________________________________________________________________________________________________________________________________________
 
@@ -1150,7 +1152,6 @@ Day-3	(4-Oct-2023)
     • Servlet Introduction 
     • Building Jar and War Files 
     • 3 Tier Architecture 
-
     • Create Maven Project 
     • Working with POM 
     • Add dependent Library 
@@ -1436,64 +1437,851 @@ Benifits:
 	The "database server" is the data or backend tier of a web application. It runs on database management software, such as MySQL, 	Oracle, DB2 or PostgreSQL, for example.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	Contract between equals() and hashcode():
 	--------------------------------------------
 	if two objects are equal as a result of equals(), then they should have the same hash code.
 	but vice versa is not required.
 
 
-1. abhishek kamble			(pending)
+
+========================
+Day-4	(6-Oct-2023)
+========================
+
+    • Log File Handling (Log4j) 
+    • Best Practices in Java Coding 
+    • Debugging in Eclipse 
+    • Design Pattern Introduction 
+
+    • JDBC Introduction 
+    • Connect with MySQL Database 
+    • Statement / Prepared Statement / Result Set 
+    • CRUD Operation using JDBC 
+    
+    • MVC Architecture 
+    • Basic of Spring Boot framework using Maven 
+
+
+
+
+	jar	:	java archive file
+			you will create a jar fle and distribute it.
+
+			Any java libraries are supplied in the form of ".jar" files.
+			it contain ".class" files.
+
+		
+	war	:	web archive file
+			you will create a war file and deploy that file into 
+			tomcat server if it is a web application.
+	
+
+			web admins will do the deployment.
+
+Maven:
+------
+
+	Apache Maven is a software project management and comprehension tool. 
+	Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation 
+	from a central piece of information.
+
+
+	How to create a maven project in eclipse?
+	------------------------------------------
+		a) you can create console applications
+		b) you can also create web applications.
+
+
+	File -> New -> Other -> Maven -> Maven Project
+
+		check "Create Simple Project" checkbox
+		click "Next"
+	
+		group id:	com.vodafone			(package name)
+		artifact id:	sample-maven-project		(project name)
+		packaging:	jar
+
+
+	
+	maven simple project folder structure:
+	--------------------------------------
+		src/main/java		:	where we write java programs
+		src/main/resources	:	where we put all non-java programs
+						like property files etc.,
+		src/test/java		:	all your testing code
+		src/test/resources	:	all non-java programs required to perform testing
+
+	pom.xml
+	-------
+		pom stands for "project object model".
+		xml files are mainly used to store configuration information.
+
+		dependencies : 
+			libraries that are required to execute the project.
+
+		in pom.xml, we have to add the necessary dependencies.
+
+	_____________________________________________________________________________________________
+	Note:
+		By default, maven simple project comes with J2SE-1.5.
+		This is ok to execute project in your machine.
+
+		But for build any project, it needs java 7 or later.
+	_____________________________________________________________________________________________
+
+	
+								
+								Logging
+							---------------------------
+
+	Log4j:
+		log4j stands for "logging for java".
+		Log4j is a simple, flexible and fast java based logging framework. 
+		
+
+	Log4j components:
+		a) Logger	: It is used to log the messages.
+
+		b) Appender	: It is used to publish the logging information to the destination like console, 
+				  file, database etc.
+
+		c) Layout	: It is used to format logging information in different styles.
+
+
+	Advantages of Log4j:
+		It provides the easy maintenance and fast debugging.
+
+	Disadvantages of Log4j:
+		It slow down the application.
+
+
+
+	Logger class:
+		Logger class provides the methods for logging process. 
+		We can use the getLogger() method to get the Logger object.
+
+		Syntax:			
+			public static Logger getLogger(String name);
+
+		Where name is the fully qualified class name.
+
+
+	Logging methods:
+		
+		1. debug(Object message): It is used to print the message with the level Level.DEBUG.
+
+			Syntax:
+				public void debug(Object message)
+
+		2. error(Object message): It is used to print the message with the level Level.ERROR.
+			
+			Syntax:
+
+				public void error(Object message)
+
+		3. info(Object message): It is used to print the message with the level Level.INFO.
+			
+			Syntax:
+
+				public void info(Object message)
+	
+		4. fatal(Object message): It is used to print the message with the level Level.FATAL.
+			
+			Syntax:
+
+				public void fatal(Object message)
+
+		5. warn(Object message): It is used to print the message with the level Level.WARN.
+
+			Syntax:
+
+				public void warn(Object message)
+
+		6. trace(Object message): It is used to print the message with the level Level.TRACE.
+
+			Syntax:
+
+				public void trace(Object message)
+
+
+
+							Log4j Example
+						-----------------------------
+
+
+		we use BasicConfigurator for Log4j configurations. 
+
+		BasicConfigurator use ConsoleAppender and PatternLayout for all loggers.
+
+Add the following dependency.
+
+<dependency>  
+    <groupId>log4j</groupId>  
+    <artifactId>log4j</artifactId>  
+    <version>1.2.17</version>  
+</dependency>  
+
+	
+package com.vodafone.ui;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+ 
+public class Log4jDemo {
+
+	// Get the Logger object.
+	private static Logger log = Logger.getLogger(Log4jDemo.class);
+ 
+	public static void main(String[] args) {
+
+		// Configuring Log4j,It will log all messages on console.
+		// BasicConfigurator use ConsoleAppender and PatternLayout 
+		// for all loggers.
+
+		BasicConfigurator.configure();
+ 
+		// logger messages
+		log.debug("it is a debug message.");
+		log.info("is is an info message.");		
+	}
+}
+
+Output:
+-------
+0 [main] DEBUG com.vodafone.ui.Log4jTest 
+ - it is a debug message.
+1 [main] INFO com.vodafone.ui.Log4jTest 
+ - is is an info message.
+
+
+
+
+								JDBC 
+							      (java.sql)
+							-----------------------
+JDBC API	:	collection of interfaces, abstract classes.
+			this is provided by sun microsystems.
+			they didn't provided any implementations.
+
+JDBC Driver	:	it is an implementation of JDBC API.
+			it is provided y database vendors.
+			popular jdbc driver is "Thin Driver".
+			JDBC drivers are "jar" files.
+
+5 steps:
+    • Register the driver class			(from Java 8 it is optional)
+    • Creating connection
+    • Creating statement
+    • Executing queries
+    • Closing connection
+
+
+
+
+mysql> use vodafonedb;
+Database changed
+
+mysql> create table employees
+    -> (empno  int,
+    -> ename varchar(20),
+    -> salary float
+    -> );
+
+
+CRUD operations:
+------------------
+	Create			(INSERT)
+	Retrieve		(SELECT)
+	Update			(UPDATE)
+	Delete			(DELETE)
+
+
+Connection interface:
+
+	Statement 		createStatement()
+	PreparedStatement  	prepareStatement(sql)
+
+Statement interface:
+---------------------
+	it is used to execute sql commands.
+	it does not support parameterized query.
+	it will compile the query everytime we execute. 
+	we can change the sql command even before executing it.
+
+	One statement object can be used to execute different sql commands.
+	
+	methods:
+	--------
+	1) executeUpdate(sql)		:	for INSERT / UPDATE / DELETE commands
+	2) executeQuery(sql)		:	for SELECT command
+
+
+PreparedStatement interface:
+-------------------------------
+	it is also used to execute sql commands.
+	it support parameterized queries.
+	it will pre-compile the query and hence execution will be faster.
+	it will use only one sql command, but that can be executed for multiple times.
+
+	1) executeUpdate();
+	2) executeQuery()
+
+
+	
+ResultSet interface:
+----------------------
+	will hold the data returned from the database.
+
+
+	next()	:	it will one row at a time from the result set.
+
+
+_______________________________________________________________________________________________
+Task:
+	1. close all the resources in every program.
+
+	2. using PreparedStatement, write program to delete an employee.
+
+	3. using Statement, write a program to print all employees.
+
+	4. all programs you have to show.
+_______________________________________________________________________________________________
+
+
+
+
+
+In this example we use log4j.properties file for Log4j configurations.
+
+Example:
+Log4jTest.java
+
+import org.apache.log4j.Logger;
+ 
+/**
+ * This class is used to show the use of 
+ * Log4j with the log4j.properties file.
+  
+ */
+public class Log4jTest {
+	//Get the Logger object.
+	private static Logger log = Logger.getLogger(Log4jTest.class);
+ 
+	public static void main(String[] args) {	
+		//logger messages
+		log.debug("Log4j debug message test.");
+		log.info("Log4j info message test.");		
+	}
+}
+log4j.properties
+
+#log4j.rootCategory=INFO,DEBUG,A1,LFS
+log4j.rootLogger=DEBUG, CA
+ 
+#Set Console Appender
+log4j.appender.CA=org.apache.log4j.ConsoleAppender
+#CA uses PatternLayout
+log4j.appender.CA.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%m%n
+Output:
+Log4j debug message test.
+Log4j info message test.
+
+
+
+Logging levels:
+All logging levels are defined in the org.apache.log4j.Level class. We can also create our own levels.
+
+Logging levels are given below:
+1. ALL: All levels including custom levels also.
+
+2. DEBUG: It helps developers in application debugging.
+
+3. INFO: It gives the information about the progress of application and its states.
+
+4. WARN: It gives warning for unexpected events.
+
+5. ERROR: It provides the information about error events.
+
+6. FATAL: It provides the information about application abort.
+
+7. OFF: It turns off all the logging. It is opposite to the ALL level.
+
+Standard order of all logging levels:
+ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+
+i.e. If logging level set to FATAL then only FATAL messages will be displayed, if logging level set to ERROR then ERROR and FATAL messages will be displayed and so on.
+
+In the below example as we set the logging level to WARN so only WARN, ERROR and FATAL messages will be displayed. The DEBUG and INFO message will not display.
+
+Example:
+Log4jTest.java
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+ 
+/**
+ * This class is used to show the use of 
+ * logging levels in Log4j with the BasicConfigurator.
+  
+ */
+public class Log4jTest {
+	//Get the Logger object.
+	private static Logger log = Logger.getLogger(Log4jTest.class);
+ 
+	public static void main(String[] args) {
+		//Configuring Log4j, It will log all messages on console.
+		//BasicConfigurator use ConsoleAppender and PatternLayout 
+		//for all loggers.
+		BasicConfigurator.configure();
+ 
+		//Set logging level
+		log.setLevel(Level.WARN);
+ 
+		//logger messages
+		log.debug("Log4j debug message test.");
+		log.info("Log4j info message test.");
+		log.warn("Log4j warn message test.");
+		log.error("Log4j error message test.");
+		log.fatal("Log4j fatal message test.");
+	}
+}
+Output:
+0 [main] WARN com.w3spoint.business.Log4jTest 
+ - Log4j warn message test.
+1 [main] ERROR com.w3spoint.business.Log4jTest 
+ - Log4j error message test.
+1 [main] FATAL com.w3spoint.business.Log4jTest 
+ - Log4j fatal message test.
+
+
+
+Log4j File Appender
+
+Log4jTest.java
+
+import org.apache.log4j.Logger;
+ 
+/**
+ * This class is used to show the use of 
+ * file appender with the log4j.properties file.
+  
+ */
+public class Log4jTest {
+	//Get the Logger object.
+	private static Logger log = Logger.getLogger(Log4jTest.class);
+ 
+	public static void main(String[] args) {	
+		//logger messages
+		log.debug("Log4j debug message test.");
+		log.info("Log4j info message test.");
+		log.warn("Log4j warn message test.");
+		log.error("Log4j error message test.");
+		log.fatal("Log4j fatal message test.");		
+	}
+}
+log4j.properties
+
+#log4j.rootCategory=INFO,DEBUG,A1,LFS,FA,CA
+log4j.rootLogger=DEBUG, FA
+ 
+#Set File Appender
+log4j.appender.FA=org.apache.log4j.FileAppender
+log4j.appender.FA.File=test.log
+#Set FA Layout
+log4j.appender.FA.layout=org.apache.log4j.PatternLayout
+log4j.appender.FA.layout.ConversionPattern=%m%n
+Output:
+Log4j debug message test.
+Log4j info message test.
+Log4j warn message test.
+Log4j error message test.
+Log4j fatal message test.
+
+
+Log4j Multiple Appenders
+
+Log4jTest.java
+
+import org.apache.log4j.Logger;
+ 
+/**
+ * This class is used to show the use of 
+ * multiple appenders with the log4j.properties file.
+  
+ */
+public class Log4jTest {
+	//Get the Logger object.
+	private static Logger log = Logger.getLogger(Log4jTest.class);
+ 
+	public static void main(String[] args) {	
+		//logger messages
+		log.debug("Log4j debug message test.");
+		log.info("Log4j info message test.");
+		log.warn("Log4j warn message test.");
+		log.error("Log4j error message test.");
+		log.fatal("Log4j fatal message test.");		
+	}
+}
+log4j.properties
+
+#log4j.rootCategory=INFO,DEBUG,A1,LFS,FA,CA
+log4j.rootLogger=DEBUG, CA, FA
+ 
+#Set Console Appender
+log4j.appender.CA=org.apache.log4j.ConsoleAppender
+#Set CA Layout
+log4j.appender.CA.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%m%n
+ 
+#Set File Appender
+log4j.appender.FA=org.apache.log4j.FileAppender
+log4j.appender.FA.File=test.log
+#Set FA Layout
+log4j.appender.FA.layout=org.apache.log4j.PatternLayout
+log4j.appender.FA.layout.ConversionPattern=%m%n
+ 
+#Set the logging level of FA to WARN
+log4j.appender.FA.Threshold = WARN
+Output:
+Console
+
+Log4j debug message test.
+Log4j info message test.
+Log4j warn message test.
+Log4j error message test.
+Log4j fatal message test.
+test.log
+
+Log4j warn message test.
+Log4j error message test.
+Log4j fatal message test.
+
+
+
+		
+
+Best Practices in Java Coding:
+-------------------------------
+1. Using Naming Conventions:
+
+	a) When naming identifiers (methods, classes, and variables), it's a good practice for you to let the respective things you name them 	   with to be self-explanatory, distinct, and pronounceable.
+	b) Most importantly, you must always ensure to write readable codes that are easily understood by humans.
+	3) Not just write codes for the sake of satisfying the compiler.
+	
+2. Ordering Class Members by Scopes:
+
+ 	a) private, default (package), protected, and public. 
+	b) And a blank line separates each of the groups. 
+	c) it would be nice of you to sort each member by the visibility of the access modifiers
+
+3. Class Members should be private.
+
+	a) The only logical reason for practicing this is to bring out the usefulness of encapsulating information
+
+4. Using Underscores in Numeric Literals
+
+	a) Before using Underscore:
+
+		int minUploadSize = 05437326;
+		long debitBalance = 5000000000000000L;
+		float pi = 3.141592653589F;
+
+	b) After making use of Underscore:
+
+		int minUploadSize = 05_437_326;
+		long debitBalance = 5_000_000_000_000_000L;
+		float pi = 3.141_592_653_589F;
+
+5. Avoid Redundant Initialization (0-false-null)
+
+	a) the following initialization is not recommended.
+
+		public class Person {
+   			private String name = null;
+   			private int age = 0;
+   			private boolean isGenius = false;
+		}
+
+	b) why?
+		since null and 0 and false are the default initial values for String, int and boolean types.
+
+
+
+Worst Practices When Coding in Java:
+------------------------------------
+
+1. Neglecting Existing Libraries
+
+	a) for example observe the following code.
+
+		double areaOfCircle = 3.14 * radius * radius;
+
+	b) instead use the Math.PI
+
+		double areaOfCircle = Math.PI * radius * radius;
+
+
+
+2. Using Raw Type Instead of a Parameterized One
+
+	a) Raw Collection - Not TypeSafe - and - Heterogeneous.
+
+		List listOfNumbers = new ArrayList();
+		listOfNumbers.add(20);
+		listOfNumbers.add("Forty");
+		listOfNumbers.forEach(n -> System.out.println((int) n * 2));
+
+
+
+	b) Making it as Generic Collection - TypeSafe.
+
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(20);
+		
+		list.add("Forty")			// compilation error
+
+3. Exceptions
+
+	a) Don't handle Unchecked exceptions. 
+	   Instead we have to use "defensive programming" to avoid unchecked exceptions.
+
+	b) Anyway, you have to handle checked exceptions.
+	
+
+4. Excessive Garbage Allocation
+
+	a) Creating many short-lived objects may result in excessive garbage allocation. 
+	   the performance of an application is affected negatively anytime the garbage collector tries to remove an unneeded object from 
+           memory.
+
+
+		class ReverseString {
+			public static void main(String[] args) {
+				String str = "java";
+				String revString = "";
+
+				for(int i = str.length() - 1; i >= 0; i--) {
+					revString += str.charAt(i);
+				}
+
+				System.out.println("Reverse String = " + revString);
+			}
+		}
+
+		
+		The above create many temporary String objects.
+
+	
+	b) The alternate is use StringBuilder instead. It is a mutable class.
+
+		class ReverseStringUsingStringBuilder {
+			public static void main(String[] args) {
+				String str = "java";
+				StringBuilder revString = new StringBuilder();
+
+				for(int i = str.length() - 1; i >= 0; i--) {
+					revString.append(str.charAt(i));
+				}
+
+				System.out.println("Reverse String = " + revString);
+			}
+		}
+
+
+		
+==========================
+DAY 5 
+==========================
+
+
+							MVC
+						----------------------
+	MVC stands for "Model View Controller".
+	It is a design pattern.
+
+	Model			:	It holds the data.
+					model is a java class.
+	View			:	It represent presentation.
+					If it is a web application, using html pages.
+	Controller		:	which will take care of the flow of an entire application and
+					also responsible for request-response mechansism.
+
+	To make use of MVC architecture:
+		Spring			:	Spring Web MVC
+		Spring Boot		:	Spring Boot Web MVC
+
+
+
+							Design Patterns
+					--------------------------------------------
+	these proposed methodologies to solve a particular problem.
+
+	1. creational design patterns
+		singleton design pattern : if any class contain only one object for an entire application.
+					  eg: 	create a class and write a utility method to call
+						database connection.
+						
+					   eg:
+						DatabaseUtil.getConnection()
+	2. structural design patterns
+	3. behavioural design patterns.
+
+
+
+
+    • TDD 
+    • Understanding Test Cases 
+    • Using Junit for Unit test 
+    • Understanding Test Suites 
+
+    • Multithread Introduction 
+    • Creating Threads with Extends/implements 
+    • Thread Life Cycle 
+    • Thread Synchronization 
+    • Inter Thread Communication 
+    • Deadlock Concept 
+
+    • File Handling 
+    • Serialization Concept 
+    • Java Stream Concept 
+    • Byte Stream 
+    • Character Stream
+
+
+		1) BDD		(Behavioural driven development)  approach
+
+					develop the code.
+					test the code.
+
+		2) TDD		(Test Driven development) approach
+
+					test cases (testing code) developed.
+					we use junit, which is a testing framework.
+					developers will take the test cases, and write their code such a way that
+					it passes all test cases.
+
+
+		class under test :	it is the class given by the developer
+					for which a test has to write code to check the validity of the code.
+
+
+		test class	:	it is a collection of methods also known as "Test Cases".
+					it is written by a tester.
+					this is where we use junit 5.
+
+
+		@Test		:	it is the method level annotation indicate a test case.
+
+		@BeforeEach	:	it a method that is executed before every test.
+					these are also known as setup methods.
+
+		@AfterEach	:	it is a method that is executed after every test.
+					this is als known as teardown method.
+
+		@BeforeAll	:	it is executed only once before running any test case.
+		@AfterAll	:	it is executed only once after running all test case.
+
+		Assertions	:	Assertions is a collection of utility methods 
+					that support asserting conditions in tests. 
+
+
+					 assertEquals()
+					 assertNotEquals()
+					 assertTrue()
+					 assertFalse()
+					 assertArrayEquals()
+					 assertArrayNotEquals()
+					 assertNull()
+					 assertNotNull()
+
+		@DisplayName(value = "meaning full name")
+		@Disabled
+
+
+		TestSuite	:	collection related test classes.
+
+
+
+			
+						Multi Threading
+					-----------------------------------
+
+Thread is a separate path of execution.
+
+
+thread can be created in 2 ways.
+i) extending java.lang.Thread  class
+ii) implementing java.lang.Runnable interface
+
+
+Thread life cycle methods:
+----------------------------
+1) start()
+2) stop()
+3) run()	: contain the code that is associated with the thread.
+		  as and when we use threadObject.start(), it invoke the run() method.\\\
+
+
+Thread class method:
+---------------------
+4) sleep(milli-seconds)
+5) setName(string)
+
+	synchronization:
+
+			a method
+			a block
+
+	only when we want to share an object across multiple threads.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+1. abhishek kamble			
 2. ajay shedge
-3. ankush nagarnaik		(pending)
-4. devyani umale			(pending)
+3. ankush nagarnaik			
+4. devyani umale			
 5. dhruva kale
-6. harshada memane			(assignments done)
+6. harshada memane			
 7. ketan kulkarni			
 8. khaled Barbhuiya
-9. mayank khurade			(pending)
+9. mayank khurade			
 10. mayuri shinde			
-11. naga lakshmi padma 		(pending)
-12. nisha jagtap			(pending and improper practice)
+11. naga lakshmi padma 			
+12. nisha jagtap			
 13. nisha pharande
 14. Pranali Raipure
 15. pravin shende	
-16. preeti tiwari			(pending )	
-17. priti ekhande			(pending )
-18. samrudhi haral			(pending )
+16. preeti tiwari				
+17. priti ekhande			
+18. samrudhi haral			
 19. satyam prasad deva sarmah	
-20. sevak singh bhatia			(pending)
+20. sevak singh bhatia			
 21. shubham raut	
 22. shorya goyal						
-23. shruthika raikwad			(pending)
+23. shruthika raikwad			
 24. Soham Gugalgawe	
 25. Tanvi Borade				
-26. Vaibhav Mane			(pending)
+26. Vaibhav Mane			
 			
 
 
